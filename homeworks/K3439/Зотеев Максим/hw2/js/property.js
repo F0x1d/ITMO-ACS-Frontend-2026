@@ -21,6 +21,9 @@ function renderPhotos(property) {
   const slides = photos.map((photo, index) => {
     const slide = document.createElement('div');
     slide.className = `carousel-item${index === 0 ? ' active' : ''}`;
+    slide.setAttribute('role', 'group');
+    slide.setAttribute('aria-roledescription', 'слайд');
+    slide.setAttribute('aria-label', `${index + 1} из ${photos.length}`);
 
     const image = document.createElement('img');
     image.className = 'd-block w-100 property-photo';
@@ -141,15 +144,17 @@ function handleModalForm(formId, modalId, successText, submit) {
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
     const notice = element('notice');
+    const modal = bootstrap.Modal.getInstance(element(modalId));
 
+    // Уведомление показываем после закрытия окна, чтобы его озвучили вне модального диалога
     try {
       await submit(formData(form));
+      modal.hide();
       showAlert(notice, successText, 'success');
     } catch (requestError) {
+      modal.hide();
       showAlert(notice, requestError.message);
     }
-
-    bootstrap.Modal.getInstance(element(modalId)).hide();
   });
 }
 

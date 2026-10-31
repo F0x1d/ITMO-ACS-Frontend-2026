@@ -38,18 +38,19 @@
 
   <main id="main" tabindex="-1" class="container py-4">
     <h1 class="h2 mb-4">Сообщения</h1>
-    <p id="error" hidden></p>
+    <p id="error" role="alert" hidden></p>
 
     <div class="row g-4 mb-5">
       <div class="col-md-4">
-        <div class="list-group" id="conversations"></div>
+        <h2 class="visually-hidden" id="conversationsTitle">Диалоги</h2>
+        <div class="list-group" id="conversations" role="group" aria-labelledby="conversationsTitle"></div>
         <p class="text-muted" id="noConversations" hidden>Диалогов пока нет. Напишите владельцу со страницы объекта.</p>
       </div>
 
       <div class="col-md-8">
         <div class="card" id="chatCard" hidden>
-          <div class="card-header bg-white fw-bold" id="chatName"></div>
-          <div class="card-body chat d-flex flex-column gap-2" id="chat"></div>
+          <h2 class="card-header bg-white fw-bold fs-6 m-0" id="chatName"></h2>
+          <div class="card-body chat d-flex flex-column gap-2" id="chat" role="log" aria-labelledby="chatName" tabindex="0"></div>
           <div class="card-footer bg-white">
             <form class="d-flex gap-2" id="messageForm" aria-label="Новое сообщение">
               <label class="visually-hidden" for="messageText">Текст сообщения</label>
@@ -61,9 +62,9 @@
       </div>
     </div>
 
-    <h2 class="h3 mb-3">История сделок</h2>
+    <h2 class="h3 mb-3" id="dealsTitle">История сделок</h2>
     <div class="table-responsive">
-      <table class="table table-striped bg-white">
+      <table class="table table-striped bg-white" aria-labelledby="dealsTitle">
         <thead>
           <tr>
             <th scope="col">Дата</th>

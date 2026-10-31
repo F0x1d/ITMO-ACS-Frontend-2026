@@ -30,6 +30,7 @@ function createCard(property) {
   field('location').textContent = `${property.city}, ${property.district}`;
   field('price').textContent = `${formatPrice(property.price)} / мес`;
   field('link').href = `property.html?id=${property.id}`;
+  field('link').setAttribute('aria-label', `Подробнее: ${property.title}`);
 
   return card;
 }

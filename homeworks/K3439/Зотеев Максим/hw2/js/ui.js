@@ -15,8 +15,9 @@ export function propertyPhoto(property, width) {
 
 export function showAlert(element, text, type = 'danger') {
   element.className = `alert alert-${type}`;
-  element.textContent = text;
+  element.setAttribute('role', type === 'danger' ? 'alert' : 'status');
   element.hidden = false;
+  element.textContent = text;
 }
 
 export function hideAlert(element) {

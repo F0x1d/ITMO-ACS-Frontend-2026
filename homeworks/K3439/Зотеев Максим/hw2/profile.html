@@ -37,16 +37,16 @@
   </header>
 
   <main id="main" tabindex="-1" class="container py-4">
-    <p id="notice" hidden></p>
+    <p id="notice" role="status" hidden></p>
 
     <div class="row g-4">
       <div class="col-lg-3">
         <div class="card text-center">
           <div class="card-body">
-            <div class="avatar rounded-circle bg-primary text-white fs-2 mx-auto mb-3" id="avatar"></div>
+            <div class="avatar rounded-circle bg-primary text-white fs-2 mx-auto mb-3" id="avatar" aria-hidden="true"></div>
             <h1 class="h5 mb-1" id="profileName"></h1>
             <p class="text-muted small mb-3"><span id="profileEmail"></span><br><span id="profilePhone"></span></p>
-            <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#addModal">
+            <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#addModal">
               Сдать жильё
             </button>
           </div>
@@ -54,30 +54,31 @@
       </div>
 
       <div class="col-lg-9">
-        <ul class="nav nav-tabs mb-3" role="tablist">
+        <ul class="nav nav-tabs mb-3" role="tablist" aria-label="Разделы личного кабинета">
           <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="rentingTab" data-bs-toggle="tab" data-bs-target="#renting" type="button" role="tab">Я арендую</button>
+            <button class="nav-link active" id="rentingTab" data-bs-toggle="tab" data-bs-target="#renting" type="button" role="tab" aria-controls="renting" aria-selected="true">Я арендую</button>
           </li>
           <li class="nav-item" role="presentation">
-            <button class="nav-link" id="owningTab" data-bs-toggle="tab" data-bs-target="#owning" type="button" role="tab">Я сдаю</button>
+            <button class="nav-link" id="owningTab" data-bs-toggle="tab" data-bs-target="#owning" type="button" role="tab" aria-controls="owning" aria-selected="false">Я сдаю</button>
           </li>
           <li class="nav-item" role="presentation">
-            <button class="nav-link" id="settingsTab" data-bs-toggle="tab" data-bs-target="#settings" type="button" role="tab">Настройки</button>
+            <button class="nav-link" id="settingsTab" data-bs-toggle="tab" data-bs-target="#settings" type="button" role="tab" aria-controls="settings" aria-selected="false">Настройки</button>
           </li>
         </ul>
 
         <div class="tab-content">
           <!-- Арендованные объекты -->
-          <div class="tab-pane fade show active" id="renting" role="tabpanel">
-            <p class="text-muted" id="rentingLoading">Загрузка…</p>
+          <div class="tab-pane fade show active" id="renting" role="tabpanel" aria-labelledby="rentingTab" tabindex="0">
+            <p class="text-muted" id="rentingLoading" role="status">Загрузка…</p>
             <div id="rentingList"></div>
             <p class="text-muted" id="rentingEmpty" hidden>Вы пока ничего не арендуете.</p>
           </div>
 
           <!-- Сдаваемые объекты -->
-          <div class="tab-pane fade" id="owning" role="tabpanel">
+          <div class="tab-pane fade" id="owning" role="tabpanel" aria-labelledby="owningTab" tabindex="0">
             <div class="table-responsive">
               <table class="table table-hover align-middle bg-white">
+                <caption class="visually-hidden">Объекты, которые вы сдаёте</caption>
                 <thead>
                   <tr>
                     <th scope="col">Объект</th>
@@ -93,7 +94,7 @@
           </div>
 
           <!-- Настройки профиля -->
-          <div class="tab-pane fade" id="settings" role="tabpanel">
+          <div class="tab-pane fade" id="settings" role="tabpanel" aria-labelledby="settingsTab" tabindex="0">
             <form class="card card-body" id="settingsForm">
               <div class="row">
                 <div class="col-md-6 mb-3">
@@ -187,7 +188,7 @@
     <div class="card mb-3">
       <div class="row g-0">
         <div class="col-md-4">
-          <img class="img-fluid rounded-start h-100 object-fit-cover" data-field="photo">
+          <img class="img-fluid rounded-start h-100 object-fit-cover" alt="" data-field="photo">
         </div>
         <div class="col-md-8">
           <div class="card-body">

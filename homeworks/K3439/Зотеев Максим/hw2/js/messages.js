@@ -24,11 +24,15 @@ function interlocutor(conversation, user) {
 
 function appendMessage(message, user) {
   const bubble = document.createElement('div');
+  const sender = document.createElement('span');
   const isMine = message.senderId === user.id;
   bubble.className = isMine
     ? 'message align-self-end bg-primary text-white rounded p-2'
     : 'message align-self-start bg-light border rounded p-2';
-  bubble.textContent = message.text;
+  // Отправителя на экране видно только по стороне и цвету, поэтому называем его текстом
+  sender.className = 'visually-hidden';
+  sender.textContent = isMine ? 'Вы: ' : `${interlocutor(currentConversation, user)}: `;
+  bubble.append(sender, message.text);
   chat.append(bubble);
 }
 
@@ -37,7 +41,9 @@ async function openConversation(conversation, user) {
   hideAlert(error);
 
   [...list.children].forEach((item) => {
-    item.classList.toggle('active', Number(item.dataset.id) === conversation.id);
+    const isCurrent = Number(item.dataset.id) === conversation.id;
+    item.classList.toggle('active', isCurrent);
+    item.toggleAttribute('aria-current', isCurrent);
   });
 
   element('chatName').textContent = interlocutor(conversation, user);

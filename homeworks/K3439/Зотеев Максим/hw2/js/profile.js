@@ -39,6 +39,7 @@ function createRentalCard(rental) {
 
   if (rental.status === 'active') {
     field('chat').href = `messages.html?property=${property.id}`;
+    field('chat').setAttribute('aria-label', `Написать владельцу: ${property.title}`);
   } else {
     field('chat').remove();
   }
@@ -111,6 +112,7 @@ function handleNewListing(user) {
     event.preventDefault();
     hideAlert(notice);
 
+    const modal = bootstrap.Modal.getInstance(element('addModal'));
     const fields = formData(addForm);
     const price = Number(fields.price);
     const area = Number(fields.area);
@@ -132,13 +134,13 @@ function handleNewListing(user) {
       });
       await loadOwning(user);
       addForm.reset();
+      modal.hide();
       bootstrap.Tab.getOrCreateInstance(element('owningTab')).show();
       showAlert(notice, 'Объявление опубликовано.', 'success');
     } catch (requestError) {
+      modal.hide();
       showAlert(notice, requestError.message);
     }
-
-    bootstrap.Modal.getInstance(element('addModal')).hide();
   });
 }
 

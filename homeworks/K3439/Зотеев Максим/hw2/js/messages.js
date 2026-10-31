@@ -43,7 +43,8 @@ async function openConversation(conversation, user) {
   [...list.children].forEach((item) => {
     const isCurrent = Number(item.dataset.id) === conversation.id;
     item.classList.toggle('active', isCurrent);
-    item.toggleAttribute('aria-current', isCurrent);
+    if (isCurrent) item.setAttribute('aria-current', 'true');
+    else item.removeAttribute('aria-current');
   });
 
   element('chatName').textContent = interlocutor(conversation, user);

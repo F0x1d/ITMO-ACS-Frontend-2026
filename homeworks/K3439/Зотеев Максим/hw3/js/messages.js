@@ -26,9 +26,7 @@ function appendMessage(message, user) {
   const bubble = document.createElement('div');
   const sender = document.createElement('span');
   const isMine = message.senderId === user.id;
-  bubble.className = isMine
-    ? 'message align-self-end bg-primary text-white rounded p-2'
-    : 'message align-self-start bg-light border rounded p-2';
+  bubble.className = `message ${isMine ? 'message--mine' : 'message--other'}`;
   // Отправителя на экране видно только по стороне и цвету, поэтому называем его текстом
   sender.className = 'visually-hidden';
   sender.textContent = isMine ? 'Вы: ' : `${interlocutor(currentConversation, user)}: `;

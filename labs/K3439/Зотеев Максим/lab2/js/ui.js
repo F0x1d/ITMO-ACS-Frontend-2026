@@ -26,3 +26,16 @@ export function hideAlert(element) {
 export function formData(form) {
   return Object.fromEntries(new FormData(form));
 }
+
+export const RENTAL_STATUSES = {
+  active: { label: 'Действует', badge: 'text-bg-success' },
+  finished: { label: 'Завершён', badge: 'text-bg-secondary' },
+  cancelled: { label: 'Отменён', badge: 'text-bg-danger' },
+};
+
+export function createBadge(text, badgeClass) {
+  const badge = document.createElement('span');
+  badge.className = `badge ${badgeClass}`;
+  badge.textContent = text;
+  return badge;
+}

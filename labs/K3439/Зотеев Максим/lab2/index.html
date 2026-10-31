@@ -20,8 +20,14 @@
           <li class="nav-item"><a class="nav-link" href="messages.html">Сообщения</a></li>
           <li class="nav-item"><a class="nav-link" href="profile.html">Личный кабинет</a></li>
         </ul>
-        <a class="btn btn-outline-primary me-2" href="login.html">Вход</a>
-        <a class="btn btn-primary" href="register.html">Регистрация</a>
+        <div id="guestActions" hidden>
+          <a class="btn btn-outline-primary me-2" href="login.html">Вход</a>
+          <a class="btn btn-primary" href="register.html">Регистрация</a>
+        </div>
+        <div id="userActions" class="d-lg-flex align-items-center" hidden>
+          <span class="navbar-text me-3" id="userName"></span>
+          <button class="btn btn-outline-secondary" type="button" id="logout">Выйти</button>
+        </div>
       </div>
     </div>
   </nav>
@@ -165,6 +171,6 @@
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/search.js"></script>
+  <script type="module" src="js/search.js"></script>
 </body>
 </html>

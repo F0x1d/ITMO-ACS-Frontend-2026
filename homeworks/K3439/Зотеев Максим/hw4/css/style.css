@@ -134,3 +134,13 @@ main:focus {
   color: var(--color-on-accent);
   background-color: var(--color-accent);
 }
+
+/* Иконки из img/sprite.svg наследуют цвет текста, поэтому подходят к обеим темам */
+.icon {
+  flex-shrink: 0;
+  width: 1.25em;
+  height: 1.25em;
+  vertical-align: -0.25em;
+  fill: none;
+  stroke: currentColor;
+}

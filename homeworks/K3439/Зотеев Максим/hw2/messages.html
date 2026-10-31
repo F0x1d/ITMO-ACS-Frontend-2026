@@ -51,8 +51,9 @@
           <div class="card-header bg-white fw-bold" id="chatName"></div>
           <div class="card-body chat d-flex flex-column gap-2" id="chat"></div>
           <div class="card-footer bg-white">
-            <form class="d-flex gap-2" id="messageForm">
-              <input type="text" class="form-control" id="messageText" name="text" placeholder="Введите сообщение" required>
+            <form class="d-flex gap-2" id="messageForm" aria-label="Новое сообщение">
+              <label class="visually-hidden" for="messageText">Текст сообщения</label>
+              <input type="text" class="form-control" id="messageText" name="text" placeholder="Введите сообщение" autocomplete="off" required>
               <button type="submit" class="btn btn-primary">Отправить</button>
             </form>
           </div>

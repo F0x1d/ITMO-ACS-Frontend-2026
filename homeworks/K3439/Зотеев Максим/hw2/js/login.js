@@ -1,6 +1,6 @@
 // Вход пользователя
 import { api, getToken, saveSession } from './api.js';
-import { formData, hideAlert, showAlert } from './ui.js';
+import { clearInvalid, formData, hideAlert, markInvalid, showAlert } from './ui.js';
 import './nav.js';
 
 // Возвращаем только на страницы сайта, чтобы next нельзя было подменить внешней ссылкой
@@ -17,6 +17,7 @@ const error = document.getElementById('formError');
 form.addEventListener('submit', async (event) => {
   event.preventDefault();
   hideAlert(error);
+  clearInvalid(form);
 
   const { email, password, remember } = formData(form);
 
@@ -26,5 +27,6 @@ form.addEventListener('submit', async (event) => {
     location.href = nextPage();
   } catch (requestError) {
     showAlert(error, requestError.message);
+    markInvalid([form.email, form.password]);
   }
 });

@@ -41,8 +41,8 @@
 
     <div class="row">
       <div class="col-lg-3 mb-4">
-        <form id="filters" class="card card-body">
-          <h2 class="h5 mb-3">Фильтры</h2>
+        <form id="filters" class="card card-body" role="search" aria-labelledby="filtersTitle">
+          <h2 class="h5 mb-3" id="filtersTitle">Фильтры</h2>
           <div class="mb-3">
             <label for="type" class="form-label">Тип жилья</label>
             <select id="type" class="form-select">
@@ -63,13 +63,13 @@
               <option value="Сочи">Сочи</option>
             </select>
           </div>
-          <div class="mb-3">
-            <label class="form-label">Цена, ₽ в месяц</label>
+          <fieldset class="mb-3">
+            <legend class="form-label fs-6">Цена, ₽ в месяц</legend>
             <div class="input-group">
-              <input type="number" id="priceMin" class="form-control" placeholder="от" min="0">
-              <input type="number" id="priceMax" class="form-control" placeholder="до" min="0">
+              <input type="number" id="priceMin" class="form-control" placeholder="от" min="0" aria-label="Цена от, рублей">
+              <input type="number" id="priceMax" class="form-control" placeholder="до" min="0" aria-label="Цена до, рублей">
             </div>
-          </div>
+          </fieldset>
           <button type="submit" class="btn btn-primary mb-2">Показать</button>
           <button type="reset" class="btn btn-outline-secondary">Сбросить</button>
         </form>

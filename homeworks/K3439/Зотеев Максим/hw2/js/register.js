@@ -1,6 +1,6 @@
 // Регистрация пользователя
 import { api, getToken, saveSession } from './api.js';
-import { formData, hideAlert, showAlert } from './ui.js';
+import { clearInvalid, formData, hideAlert, markInvalid, showAlert } from './ui.js';
 import './nav.js';
 
 if (getToken()) location.replace('profile.html');
@@ -11,6 +11,7 @@ const error = document.getElementById('formError');
 form.addEventListener('submit', async (event) => {
   event.preventDefault();
   hideAlert(error);
+  clearInvalid(form);
 
   const { agree, ...fields } = formData(form);
   const body = { ...fields, since: new Date().getFullYear(), notify: true };
@@ -20,5 +21,6 @@ form.addEventListener('submit', async (event) => {
     location.href = 'profile.html';
   } catch (requestError) {
     showAlert(error, requestError.message);
+    markInvalid([form.email]);
   }
 });

@@ -23,6 +23,22 @@ export function hideAlert(element) {
   element.hidden = true;
 }
 
+// Отмечаем поля с ошибкой и для глаз, и для программ чтения с экрана
+export function markInvalid(inputs) {
+  inputs.forEach((input) => {
+    input.classList.add('is-invalid');
+    input.setAttribute('aria-invalid', 'true');
+  });
+  inputs[0].focus();
+}
+
+export function clearInvalid(form) {
+  form.querySelectorAll('[aria-invalid]').forEach((input) => {
+    input.classList.remove('is-invalid');
+    input.removeAttribute('aria-invalid');
+  });
+}
+
 export function formData(form) {
   return Object.fromEntries(new FormData(form));
 }

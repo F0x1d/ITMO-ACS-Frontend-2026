@@ -24,7 +24,7 @@
           <a class="btn btn-outline-primary me-2" href="login.html">Вход</a>
           <a class="btn btn-primary" href="register.html">Регистрация</a>
         </div>
-        <div id="userActions" class="d-lg-flex align-items-center" hidden>
+        <div id="userActions" hidden>
           <span class="navbar-text me-3" id="userName"></span>
           <button class="btn btn-outline-secondary" type="button" id="logout">Выйти</button>
         </div>
@@ -72,103 +72,32 @@
       </div>
 
       <div class="col-lg-9">
-        <p class="text-muted">Найдено объявлений: <span id="count">6</span></p>
-        <div class="row g-4">
-          <div class="col-md-6 col-xl-4 listing" data-type="Квартира" data-city="Санкт-Петербург" data-price="65000">
-            <div class="card h-100">
-              <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600" class="card-img-top" alt="Двухкомнатная квартира">
-              <div class="card-body">
-                <span class="badge text-bg-secondary mb-2">Квартира</span>
-                <h2 class="h5 card-title">Двухкомнатная квартира, 58 м²</h2>
-                <p class="card-text text-muted mb-2">Санкт-Петербург, Петроградский район</p>
-                <p class="fw-bold fs-5 mb-0">65 000 ₽ / мес</p>
-              </div>
-              <div class="card-footer bg-white border-0 pb-3">
-                <a href="property.html" class="btn btn-outline-primary w-100">Подробнее</a>
-              </div>
-            </div>
-          </div>
+        <p class="text-muted">Найдено объявлений: <span id="count">0</span></p>
+        <p id="loading" class="text-muted">Загрузка объявлений…</p>
+        <p id="error" hidden></p>
+        <div class="row g-4" id="listings"></div>
 
-          <div class="col-md-6 col-xl-4 listing" data-type="Студия" data-city="Санкт-Петербург" data-price="38000">
-            <div class="card h-100">
-              <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=600" class="card-img-top" alt="Студия">
-              <div class="card-body">
-                <span class="badge text-bg-secondary mb-2">Студия</span>
-                <h2 class="h5 card-title">Студия, 28 м²</h2>
-                <p class="card-text text-muted mb-2">Санкт-Петербург, Василеостровский район</p>
-                <p class="fw-bold fs-5 mb-0">38 000 ₽ / мес</p>
-              </div>
-              <div class="card-footer bg-white border-0 pb-3">
-                <a href="property.html" class="btn btn-outline-primary w-100">Подробнее</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-xl-4 listing" data-type="Комната" data-city="Санкт-Петербург" data-price="22000">
-            <div class="card h-100">
-              <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=600" class="card-img-top" alt="Комната">
-              <div class="card-body">
-                <span class="badge text-bg-secondary mb-2">Комната</span>
-                <h2 class="h5 card-title">Комната в трёхкомнатной квартире, 18 м²</h2>
-                <p class="card-text text-muted mb-2">Санкт-Петербург, Московский район</p>
-                <p class="fw-bold fs-5 mb-0">22 000 ₽ / мес</p>
-              </div>
-              <div class="card-footer bg-white border-0 pb-3">
-                <a href="property.html" class="btn btn-outline-primary w-100">Подробнее</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-xl-4 listing" data-type="Квартира" data-city="Москва" data-price="145000">
-            <div class="card h-100">
-              <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=600" class="card-img-top" alt="Трёхкомнатная квартира">
-              <div class="card-body">
-                <span class="badge text-bg-secondary mb-2">Квартира</span>
-                <h2 class="h5 card-title">Трёхкомнатная квартира, 86 м²</h2>
-                <p class="card-text text-muted mb-2">Москва, Хамовники</p>
-                <p class="fw-bold fs-5 mb-0">145 000 ₽ / мес</p>
-              </div>
-              <div class="card-footer bg-white border-0 pb-3">
-                <a href="property.html" class="btn btn-outline-primary w-100">Подробнее</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-xl-4 listing" data-type="Квартира" data-city="Казань" data-price="48000">
-            <div class="card h-100">
-              <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=600" class="card-img-top" alt="Квартира в Казани">
-              <div class="card-body">
-                <span class="badge text-bg-secondary mb-2">Квартира</span>
-                <h2 class="h5 card-title">Двухкомнатная квартира, 52 м²</h2>
-                <p class="card-text text-muted mb-2">Казань, Вахитовский район</p>
-                <p class="fw-bold fs-5 mb-0">48 000 ₽ / мес</p>
-              </div>
-              <div class="card-footer bg-white border-0 pb-3">
-                <a href="property.html" class="btn btn-outline-primary w-100">Подробнее</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-xl-4 listing" data-type="Дом" data-city="Сочи" data-price="250000">
-            <div class="card h-100">
-              <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600" class="card-img-top" alt="Дом с бассейном">
-              <div class="card-body">
-                <span class="badge text-bg-secondary mb-2">Дом</span>
-                <h2 class="h5 card-title">Дом с бассейном, 180 м²</h2>
-                <p class="card-text text-muted mb-2">Сочи, Адлерский район</p>
-                <p class="fw-bold fs-5 mb-0">250 000 ₽ / мес</p>
-              </div>
-              <div class="card-footer bg-white border-0 pb-3">
-                <a href="property.html" class="btn btn-outline-primary w-100">Подробнее</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <p id="empty" class="alert alert-warning mt-4 d-none">По вашему запросу ничего не найдено.</p>
+        <p id="empty" class="alert alert-warning mt-4" hidden>По вашему запросу ничего не найдено.</p>
       </div>
     </div>
   </main>
+
+  <template id="cardTemplate">
+    <div class="col-md-6 col-xl-4">
+      <div class="card h-100">
+        <img class="card-img-top" data-field="photo">
+        <div class="card-body">
+          <span class="badge text-bg-secondary mb-2" data-field="type"></span>
+          <h2 class="h5 card-title" data-field="title"></h2>
+          <p class="card-text text-muted mb-2" data-field="location"></p>
+          <p class="fw-bold fs-5 mb-0" data-field="price"></p>
+        </div>
+        <div class="card-footer bg-white border-0 pb-3">
+          <a class="btn btn-outline-primary w-100" data-field="link">Подробнее</a>
+        </div>
+      </div>
+    </div>
+  </template>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script type="module" src="js/search.js"></script>

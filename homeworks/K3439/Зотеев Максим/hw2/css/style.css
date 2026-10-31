@@ -28,3 +28,18 @@ body {
   align-items: center;
   justify-content: center;
 }
+
+.skip-link {
+  position: absolute;
+  z-index: 1100;
+  top: 8px;
+  left: 8px;
+  padding: 8px 16px;
+  color: #fff;
+  background-color: #0a58ca;
+  border-radius: 6px;
+}
+
+main:focus {
+  outline: none;
+}

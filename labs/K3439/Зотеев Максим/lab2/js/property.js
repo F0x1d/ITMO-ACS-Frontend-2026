@@ -132,7 +132,7 @@ async function bookViewing(property, { date, time }) {
     method: 'POST',
     body: { propertyId: property.id, userId: user.id, date, time },
   });
-  await sendToOwner(property, `Записался на просмотр ${formatDate(date)} в ${time}.`);
+  await sendToOwner(property, `Хочу посмотреть объект ${formatDate(date)} в ${time}.`);
 }
 
 function handleModalForm(formId, modalId, successText, submit) {
